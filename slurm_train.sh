@@ -24,14 +24,9 @@ echo "Allocated GPU: $(nvidia-smi --query-gpu=name,memory.total --format=csv,noh
 echo "Start Time: $(date)"
 echo "=========================================================="
 
-# 1. Load CARC Modules
-module purge
-module load conda
-module load cuda/12.1.1
-
-# 2. Activate Conda Environment
-# (Ensure you created it beforehand via: conda env create -f environment.yml)
-source activate ray_repair || conda activate ray_repair
+# 1. Activate Conda Environment
+source /apps/conda/miniforge3/25.3.0/etc/profile.d/conda.sh
+conda activate /home1/crstraw/.conda/envs/gradmm || conda activate gradmm || source activate gradmm
 
 # Create required directories
 mkdir -p logs checkpoints runs data/train data/val
