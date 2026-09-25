@@ -24,9 +24,11 @@ echo "Allocated GPU: $(nvidia-smi --query-gpu=name,memory.total --format=csv,noh
 echo "Start Time: $(date)"
 echo "=========================================================="
 
-# 1. Activate Conda Environment
-source /apps/conda/miniforge3/25.3.0/etc/profile.d/conda.sh
-conda activate /home1/crstraw/.conda/envs/gradmm || conda activate gradmm || source activate gradmm
+export OPENBLAS_NUM_THREADS=4
+export OMP_NUM_THREADS=4
+
+# 1. Activate Dedicated Scratch Conda Environment
+source /scratch1/crstraw/conda_envs/ray_repair/bin/activate
 
 # Create required directories
 mkdir -p logs checkpoints runs data/train data/val
