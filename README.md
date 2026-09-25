@@ -98,3 +98,21 @@ Following the paper specification, each pixel is packed into a 7-channel input t
 2. **[3:5] View-Space Shading Normal** (2D projected vector, $[-1, 1]$)
 3. **[5:6] Linearized Depth** ($[0, 1]$)
 4. **[6:7] Material Roughness** ($[0, 1]$)
+
+---
+
+## 🌐 Online Datasets & Denoising Benchmarks
+
+Below is a curated list of open-access datasets and scene repositories containing multi-buffer Monte Carlo path-traced images (radiance, albedo, normal, depth, roughness) and converged ground-truth pairs for training and benchmarking:
+
+| Dataset / Resource | Source / Platform | Description & Buffer Contents | Link |
+| :--- | :--- | :--- | :--- |
+| **`mad-bot/ommatidia`** | Hugging Face | Monte Carlo path-traced samples packed with Radiance, World Normals, Linear Depth, Diffuse Albedo, Specular $F_0$, and Roughness. | [Hugging Face Dataset](https://huggingface.co/datasets/mad-bot/ommatidia) |
+| **Real-Time Denoising Neural Bilateral Grid** | GitHub (Meng et al.) | ~19 GB open benchmark dataset containing 1 SPP path-traced images paired with G-buffers (normals, depth, diffuse albedo) and converged ground truth. | [GitHub Repository](https://github.com/xmeng525/RealTimeDenoisingNeuralBilateralGrid) |
+| **Disney Research Denoising Dataset** | Disney Research Studios | Production-grade multi-SPP Monte Carlo renders with auxiliary feature buffers (albedo, normal, depth) generated via the Tungsten renderer. | [Disney Research Archive](https://studios.disneyresearch.com/data-sets/) |
+| **Noisebase** | GitHub (Balint et al.) | Framework and dataset containing asynchronous `.exr` data loaders for neural Monte Carlo denoising pipelines. | [GitHub Repository](https://github.com/balintio/noisebase) |
+| **Sample-Based MC Denoising (SBMC)** | Adobe Research | Multi-sample per-pixel path-tracing sequences and ground truth references with full auxiliary passes. | [GitHub Repository](https://github.com/adobe/sbmc) |
+| **Benedikt Bitterli Rendering Resources** | Academic Resource | 32 standardized PBR 3D benchmark scenes (Classroom, Living Room, Kitchen, Cornell Box, San Miguel) in Tungsten, Mitsuba, and PBRT-v4 formats. | [Bitterli Resources](https://benedikt-bitterli.me/resources/) |
+| **McGuire Computer Graphics Archive** | Casual Effects | Industry-standard graphics test scenes (Crytek Sponza, Rungholt, Bistro, Conference Room) for custom path-tracing dataset generation. | [Graphics Archive](https://casual-effects.com/data/) |
+| **Open Image Denoise (OIDN) Toolkit** | RenderKit / Intel | Official preprocessing scripts and training utilities for training auxiliary-buffer HDR denoising models. | [GitHub Repository](https://github.com/RenderKit/oidn) |
+
